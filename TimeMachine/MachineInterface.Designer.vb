@@ -23,97 +23,33 @@ Partial Class MachineInterface
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
-        HLabel = New Label()
-        MLabel = New Label()
-        SLabel = New Label()
-        YLabel = New Label()
-        MoLabel = New Label()
-        DLabel = New Label()
-        GroupBox1 = New GroupBox()
         StatusStrip1 = New StatusStrip()
         MachineStatus = New ToolStripStatusLabel()
         Timer1 = New Timer(components)
         TimeControl = New TrackBar()
-        GroupBox1.SuspendLayout()
+        HLabel = New Label()
+        MLabel = New Label()
+        DLabel = New Label()
+        SLabel = New Label()
+        MoLabel = New Label()
+        YLabel = New Label()
+        PictureBox1 = New PictureBox()
+        clickspot = New Label()
+        YearLight = New Panel()
+        MonthLight = New Panel()
+        DayLight = New Panel()
         StatusStrip1.SuspendLayout()
         CType(TimeControl, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
-        ' 
-        ' HLabel
-        ' 
-        HLabel.AutoSize = True
-        HLabel.Location = New Point(251, 124)
-        HLabel.Name = "HLabel"
-        HLabel.Size = New Size(67, 32)
-        HLabel.TabIndex = 0
-        HLabel.Text = "Hour"
-        ' 
-        ' MLabel
-        ' 
-        MLabel.AutoSize = True
-        MLabel.Location = New Point(324, 124)
-        MLabel.Name = "MLabel"
-        MLabel.Size = New Size(91, 32)
-        MLabel.TabIndex = 1
-        MLabel.Text = "Minute"
-        ' 
-        ' SLabel
-        ' 
-        SLabel.AutoSize = True
-        SLabel.Location = New Point(420, 124)
-        SLabel.Name = "SLabel"
-        SLabel.Size = New Size(93, 32)
-        SLabel.TabIndex = 2
-        SLabel.Text = "Second"
-        ' 
-        ' YLabel
-        ' 
-        YLabel.AutoSize = True
-        YLabel.Location = New Point(164, 124)
-        YLabel.Name = "YLabel"
-        YLabel.Size = New Size(58, 32)
-        YLabel.TabIndex = 3
-        YLabel.Text = "Year"
-        ' 
-        ' MoLabel
-        ' 
-        MoLabel.AutoSize = True
-        MoLabel.Location = New Point(72, 124)
-        MoLabel.Name = "MoLabel"
-        MoLabel.Size = New Size(86, 32)
-        MoLabel.TabIndex = 4
-        MoLabel.Text = "Month"
-        ' 
-        ' DLabel
-        ' 
-        DLabel.AutoSize = True
-        DLabel.Location = New Point(11, 124)
-        DLabel.Name = "DLabel"
-        DLabel.Size = New Size(55, 32)
-        DLabel.TabIndex = 5
-        DLabel.Text = "Day"
-        ' 
-        ' GroupBox1
-        ' 
-        GroupBox1.Controls.Add(YLabel)
-        GroupBox1.Controls.Add(MoLabel)
-        GroupBox1.Controls.Add(SLabel)
-        GroupBox1.Controls.Add(DLabel)
-        GroupBox1.Controls.Add(MLabel)
-        GroupBox1.Controls.Add(HLabel)
-        GroupBox1.Location = New Point(28, 33)
-        GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(527, 292)
-        GroupBox1.TabIndex = 6
-        GroupBox1.TabStop = False
         ' 
         ' StatusStrip1
         ' 
         StatusStrip1.ImageScalingSize = New Size(32, 32)
         StatusStrip1.Items.AddRange(New ToolStripItem() {MachineStatus})
-        StatusStrip1.Location = New Point(0, 475)
+        StatusStrip1.Location = New Point(0, 649)
         StatusStrip1.Name = "StatusStrip1"
-        StatusStrip1.Size = New Size(594, 22)
+        StatusStrip1.Size = New Size(1095, 22)
         StatusStrip1.TabIndex = 7
         StatusStrip1.Text = "StatusStrip1"
         ' 
@@ -127,44 +63,164 @@ Partial Class MachineInterface
         ' 
         ' TimeControl
         ' 
-        TimeControl.Location = New Point(28, 354)
+        TimeControl.Location = New Point(1022, 90)
         TimeControl.Maximum = 5
         TimeControl.Minimum = -5
         TimeControl.Name = "TimeControl"
-        TimeControl.Size = New Size(527, 90)
+        TimeControl.Orientation = Orientation.Vertical
+        TimeControl.Size = New Size(90, 527)
         TimeControl.TabIndex = 8
+        ' 
+        ' HLabel
+        ' 
+        HLabel.AutoSize = True
+        HLabel.Location = New Point(738, 9)
+        HLabel.Name = "HLabel"
+        HLabel.Size = New Size(67, 32)
+        HLabel.TabIndex = 0
+        HLabel.Text = "Hour"
+        ' 
+        ' MLabel
+        ' 
+        MLabel.AutoSize = True
+        MLabel.Location = New Point(811, 9)
+        MLabel.Name = "MLabel"
+        MLabel.Size = New Size(91, 32)
+        MLabel.TabIndex = 1
+        MLabel.Text = "Minute"
+        ' 
+        ' DLabel
+        ' 
+        DLabel.AutoSize = True
+        DLabel.BackColor = Color.Transparent
+        DLabel.Font = New Font("Bodoni MT", 28.125F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DLabel.Location = New Point(770, 201)
+        DLabel.Name = "DLabel"
+        DLabel.Size = New Size(163, 88)
+        DLabel.TabIndex = 5
+        DLabel.Text = "Day"
+        DLabel.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' SLabel
+        ' 
+        SLabel.AutoSize = True
+        SLabel.Location = New Point(908, 9)
+        SLabel.Name = "SLabel"
+        SLabel.Size = New Size(93, 32)
+        SLabel.TabIndex = 2
+        SLabel.Text = "Second"
+        ' 
+        ' MoLabel
+        ' 
+        MoLabel.AutoSize = True
+        MoLabel.BackColor = Color.Transparent
+        MoLabel.Font = New Font("Bodoni MT Condensed", 28.125F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        MoLabel.Location = New Point(136, 189)
+        MoLabel.Name = "MoLabel"
+        MoLabel.Size = New Size(190, 89)
+        MoLabel.TabIndex = 4
+        MoLabel.Text = "Month"
+        MoLabel.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' YLabel
+        ' 
+        YLabel.AutoSize = True
+        YLabel.BackColor = Color.Transparent
+        YLabel.Font = New Font("Bodoni MT", 48F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        YLabel.Location = New Point(350, 373)
+        YLabel.Name = "YLabel"
+        YLabel.Size = New Size(312, 150)
+        YLabel.TabIndex = 3
+        YLabel.Text = "Year"
+        YLabel.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.Image = My.Resources.Resources.TimeMachine_Panel
+        PictureBox1.Location = New Point(0, 56)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(1000, 561)
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox1.TabIndex = 9
+        PictureBox1.TabStop = False
+        ' 
+        ' clickspot
+        ' 
+        clickspot.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        clickspot.AutoSize = True
+        clickspot.BackColor = Color.Transparent
+        clickspot.Font = New Font("Segoe UI", 28.125F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        clickspot.ForeColor = Color.Transparent
+        clickspot.Location = New Point(373, 201)
+        clickspot.Name = "clickspot"
+        clickspot.Size = New Size(256, 100)
+        clickspot.TabIndex = 10
+        clickspot.Text = "Label1"
+        clickspot.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' YearLight
+        ' 
+        YearLight.Location = New Point(319, 9)
+        YearLight.Name = "YearLight"
+        YearLight.Size = New Size(66, 41)
+        YearLight.TabIndex = 11
+        ' 
+        ' MonthLight
+        ' 
+        MonthLight.Location = New Point(467, 9)
+        MonthLight.Name = "MonthLight"
+        MonthLight.Size = New Size(66, 41)
+        MonthLight.TabIndex = 12
+        ' 
+        ' DayLight
+        ' 
+        DayLight.Location = New Point(616, 9)
+        DayLight.Name = "DayLight"
+        DayLight.Size = New Size(66, 41)
+        DayLight.TabIndex = 13
         ' 
         ' MachineInterface
         ' 
-        AutoScaleDimensions = New SizeF(13F, 32F)
-        AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(594, 497)
+        AutoScaleMode = AutoScaleMode.None
+        ClientSize = New Size(1095, 671)
+        Controls.Add(DayLight)
+        Controls.Add(MonthLight)
+        Controls.Add(YearLight)
+        Controls.Add(clickspot)
+        Controls.Add(SLabel)
+        Controls.Add(YLabel)
+        Controls.Add(MLabel)
         Controls.Add(TimeControl)
+        Controls.Add(HLabel)
+        Controls.Add(MoLabel)
         Controls.Add(StatusStrip1)
-        Controls.Add(GroupBox1)
+        Controls.Add(DLabel)
+        Controls.Add(PictureBox1)
         FormBorderStyle = FormBorderStyle.FixedSingle
         MaximizeBox = False
         Name = "MachineInterface"
         SizeGripStyle = SizeGripStyle.Hide
-        Text = "Time Machine"
-        GroupBox1.ResumeLayout(False)
-        GroupBox1.PerformLayout()
+        Text = "Time Machine Control Panel"
         StatusStrip1.ResumeLayout(False)
         StatusStrip1.PerformLayout()
         CType(TimeControl, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
-
-    Friend WithEvents HLabel As Label
-    Friend WithEvents MLabel As Label
-    Friend WithEvents SLabel As Label
-    Friend WithEvents YLabel As Label
-    Friend WithEvents MoLabel As Label
-    Friend WithEvents DLabel As Label
-    Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents Timer1 As Timer
     Friend WithEvents TimeControl As TrackBar
     Friend WithEvents MachineStatus As ToolStripStatusLabel
+    Friend WithEvents HLabel As Label
+    Friend WithEvents MLabel As Label
+    Friend WithEvents DLabel As Label
+    Friend WithEvents SLabel As Label
+    Friend WithEvents MoLabel As Label
+    Friend WithEvents YLabel As Label
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents clickspot As Label
+    Friend WithEvents YearLight As Panel
+    Friend WithEvents MonthLight As Panel
+    Friend WithEvents DayLight As Panel
 End Class
