@@ -23,6 +23,7 @@ Partial Class MachineInterface
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MachineInterface))
         StatusStrip1 = New StatusStrip()
         MachineStatus = New ToolStripStatusLabel()
         Timer1 = New Timer(components)
@@ -51,7 +52,7 @@ Partial Class MachineInterface
         StatusStrip1.Name = "StatusStrip1"
         StatusStrip1.Size = New Size(1095, 22)
         StatusStrip1.TabIndex = 7
-        StatusStrip1.Text = "StatusStrip1"
+        StatusStrip1.Text = "Status: Travelling @1x real time"
         ' 
         ' MachineStatus
         ' 
@@ -93,10 +94,10 @@ Partial Class MachineInterface
         ' 
         DLabel.AutoSize = True
         DLabel.BackColor = Color.Transparent
-        DLabel.Font = New Font("Bodoni MT", 28.125F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DLabel.Font = New Font("Bodoni MT Condensed", 28.125F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         DLabel.Location = New Point(770, 201)
         DLabel.Name = "DLabel"
-        DLabel.Size = New Size(163, 88)
+        DLabel.Size = New Size(130, 89)
         DLabel.TabIndex = 5
         DLabel.Text = "Day"
         DLabel.TextAlign = ContentAlignment.MiddleCenter
@@ -126,10 +127,10 @@ Partial Class MachineInterface
         ' 
         YLabel.AutoSize = True
         YLabel.BackColor = Color.Transparent
-        YLabel.Font = New Font("Bodoni MT", 48F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        YLabel.Location = New Point(350, 373)
+        YLabel.Font = New Font("Bodoni MT Condensed", 48F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        YLabel.Location = New Point(363, 375)
         YLabel.Name = "YLabel"
-        YLabel.Size = New Size(312, 150)
+        YLabel.Size = New Size(266, 151)
         YLabel.TabIndex = 3
         YLabel.Text = "Year"
         YLabel.TextAlign = ContentAlignment.MiddleCenter
@@ -160,21 +161,21 @@ Partial Class MachineInterface
         ' 
         ' YearLight
         ' 
-        YearLight.Location = New Point(319, 9)
+        YearLight.Location = New Point(458, 9)
         YearLight.Name = "YearLight"
         YearLight.Size = New Size(66, 41)
         YearLight.TabIndex = 11
         ' 
         ' MonthLight
         ' 
-        MonthLight.Location = New Point(467, 9)
+        MonthLight.Location = New Point(336, 9)
         MonthLight.Name = "MonthLight"
         MonthLight.Size = New Size(66, 41)
         MonthLight.TabIndex = 12
         ' 
         ' DayLight
         ' 
-        DayLight.Location = New Point(616, 9)
+        DayLight.Location = New Point(582, 9)
         DayLight.Name = "DayLight"
         DayLight.Size = New Size(66, 41)
         DayLight.TabIndex = 13
@@ -197,6 +198,7 @@ Partial Class MachineInterface
         Controls.Add(DLabel)
         Controls.Add(PictureBox1)
         FormBorderStyle = FormBorderStyle.FixedSingle
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         MaximizeBox = False
         Name = "MachineInterface"
         SizeGripStyle = SizeGripStyle.Hide

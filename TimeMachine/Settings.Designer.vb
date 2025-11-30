@@ -49,9 +49,9 @@ Partial Class Settings
         HideLites.AutoSize = True
         HideLites.Location = New Point(34, 137)
         HideLites.Name = "HideLites"
-        HideLites.Size = New Size(151, 36)
+        HideLites.Size = New Size(166, 36)
         HideLites.TabIndex = 2
-        HideLites.Text = "Hide Lites"
+        HideLites.Text = "Hide Lights"
         HideLites.UseVisualStyleBackColor = True
         ' 
         ' HideHMS
