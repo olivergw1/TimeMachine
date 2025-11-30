@@ -22,6 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Label1 = New Label()
         Year = New TextBox()
         Month = New TextBox()
@@ -37,11 +38,11 @@ Partial Class Form1
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(280, 19)
+        Label1.Location = New Point(255, 18)
         Label1.Name = "Label1"
-        Label1.Size = New Size(282, 32)
+        Label1.Size = New Size(286, 32)
         Label1.TabIndex = 0
-        Label1.Text = "Please enter current time"
+        Label1.Text = "Please enter starting time"
         ' 
         ' Year
         ' 
@@ -112,11 +113,11 @@ Partial Class Form1
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(196, 206)
+        Label3.Location = New Point(202, 206)
         Label3.Name = "Label3"
-        Label3.Size = New Size(430, 32)
+        Label3.Size = New Size(424, 32)
         Label3.TabIndex = 9
-        Label3.Text = "Click OK on default for current PC time"
+        Label3.Text = "Or click OK on default for current time"
         ' 
         ' Form1
         ' 
@@ -134,6 +135,7 @@ Partial Class Form1
         Controls.Add(Year)
         Controls.Add(Label1)
         FormBorderStyle = FormBorderStyle.FixedSingle
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         MaximizeBox = False
         MinimizeBox = False
         Name = "Form1"

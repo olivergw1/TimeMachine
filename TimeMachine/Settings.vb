@@ -3,6 +3,16 @@
         Try
             ' Required by the Windows Form Designer
             InitializeComponent()
+            ' Check the current settings from the actual MachineInterface instance
+            Dim mi = GetMachineInterfaceInstance()
+            If mi IsNot Nothing Then
+                ' Set initial checkbox states based on the current instance settings
+                HideBG.Checked = mi.PictureBox1.Image Is Nothing
+                HideHMS.Checked = Not mi.HLabel.Visible
+                HideLites.Checked = Not mi.DayLight.Visible
+            End If
+
+
 
             ' Ensure the form appears in front for debugging/normal use
             Me.StartPosition = FormStartPosition.CenterParent
@@ -14,6 +24,7 @@
     End Sub
 
     Private Sub SettingsOK_Click(sender As Object, e As EventArgs) Handles SettingsOK.Click
+        ' Close the settings box when OK clicked
         Me.Close()
     End Sub
 
@@ -77,5 +88,28 @@
         Catch ex As Exception
             MessageBox.Show("Unable to toggle H:M:S visibility: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+    End Sub
+
+    Private Sub HideLites_CheckedChanged(sender As Object, e As EventArgs) Handles HideLites.CheckedChanged
+        Try
+            Dim mi = GetMachineInterfaceInstance()
+            If mi Is Nothing Then
+                MessageBox.Show("Unable to find the Time Machine window to apply this setting.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+            ' Toggle visibility on the day/month/year lights (panel elements)
+            Dim visible As Boolean = Not HideLites.Checked
+            mi.DayLight.Visible = visible
+            mi.MonthLight.Visible = visible
+            mi.YearLight.Visible = visible
+        Catch ex As Exception
+            MessageBox.Show("Unable to toggle day/month/year lights visibility: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+	Private Sub AboutTM_Click(sender As Object, e As EventArgs) Handles AboutTM.Click
+        ' Open the About Time Machine dialog
+        Dim about As New About()
+        about.ShowDialog(Me)
     End Sub
 End Class
