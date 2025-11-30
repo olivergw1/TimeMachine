@@ -1,5 +1,7 @@
 # Time Machine
 
+![Screenshot](TMScreenshot.jpg)
+
 This is a project i thought of a few years ago but never got round to it, i've always been a fan of victorian science fiction and one of my favorites is "The Time Machine" by H.G Wells, and it's 1960 movie adaption by George Pal, the machine is a lovely piece of steampunk engineering, and while models do exist, i could never find any sort of software simulation in a similar vein to the ones that simulate the time circuits from BTTF, so this is my answer that.
 
 A lot of is vibe coded and written in VB.NET so the code might not be ideal.
