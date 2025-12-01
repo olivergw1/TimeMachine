@@ -32,8 +32,8 @@ Clicking the nameplate brings up a settings window where you can toggle various 
 
 * The font (Bodoni) is not quite true to the film
 
-* The month windows displays the date in numerical film, not a truncated month name (e.g Dec) as in the film
+* The month windows displays the date in numerical form, not a truncated month string (e.g Dec) as in the film
 
-* At the highest speeds the lights the condition for the lights is rarely met and thus they flicker randomly
+* At the highest speeds the condition for the lights is rarely met and thus they flicker randomly
 
 
